@@ -13,6 +13,10 @@
 #  updated_at  :datetime         not null
 #
 
+
+    # ruby belongs_to :director, :class_name => "Director", :foreign_key => "director_id"
+    # ruby has_many :characters, :class_name => "Character", :foreign_key => "movie_id"
+
 class Movie < ApplicationRecord
 #  - director_id: must be present
     validates :director_id, :presence => true
