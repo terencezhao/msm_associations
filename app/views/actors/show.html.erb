@@ -46,6 +46,12 @@
 
 <ul>
   <% Character.where(:actor_id => @actor.id).each do |character| %>
+    <li><a href="/movies/<%= character.movie_id %>"><%= Movie.find_by(:id => character.movie_id).title %></a></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% Character.where(:actor_id => @actor.id).each do |character| %>
     <li><a href="/characters/<%= character.id %>"><%= character.name %></a></li>
   <% end %>
 </ul>
