@@ -13,11 +13,10 @@
 #  updated_at  :datetime         not null
 #
 
-
-    # ruby belongs_to :director, :class_name => "Director", :foreign_key => "director_id"
-    # ruby has_many :characters, :class_name => "Character", :foreign_key => "movie_id"
-
 class Movie < ApplicationRecord
+    belongs_to(:director, :class_name => "Director", :foreign_key => "director_id")
+    has_many(:characters, :class_name => "Character", :foreign_key => "movie_id")
+    has_many :actors, through: :characters
 #  - director_id: must be present
     validates :director_id, :presence => true
 #  - title: must be present; must be unique in combination with year
